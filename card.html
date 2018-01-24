@@ -211,9 +211,11 @@
  
         $(document).ready (function() {
         	
-		$('#octet').trigger('focus');
+		$('#octet1').focus(function(){
+        		 $(this).keypress();
+        	});
 	 	$(".inputs").focus();
-		alert("da");
+		
                 $(".inputs").keyup(function () {
                     if (this.value.length === this.maxLength) {
                         $(this).next('.inputs').focus();
