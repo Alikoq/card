@@ -1,0 +1,451 @@
+
+ 
+@media (max-width: 900px){
+	@font-face{
+	 font-family: fontsan;
+    src: url('font/9651.ttf');
+   }
+	 body{
+
+    background: #F2F2F2;
+
+ 	font-family: fontsan
+   }
+   .for-scan{
+        text-align: center;
+    margin-top: 33px;
+
+   }
+
+   .for-scan button{
+        background: #f17001;
+    border: none;
+    cursor:pointer;
+    padding: 8px 9px;
+    color: white;
+    border-radius: 5px;
+   }
+   .hide{
+    display: none;
+   }
+   .show{
+    display: block;
+   }
+     .wrapper{
+		width: 100%;
+	    margin:0 auto; 	
+	}	
+	.container{
+		height: 100%
+	}
+	.container-item{
+		height:100%
+	
+	}
+	.input-act{
+		float: left;
+		width:100%;
+	}
+	.input-item{
+		padding-top:40px;
+	}
+	.input-item input[type="text"]{
+		    width: 88%;
+    border-top: none;
+    border-left: none;
+    outline:none;
+    padding: 5px;
+    border-right: none;
+	}
+	.info-text{
+       float: left;
+    color: #7D7D7D;
+    font-family: fontsan;
+    width: 100%;
+    margin-top: 31px;
+    padding-bottom: 23px;
+	}
+    .info-text p{
+              width: 290px;
+    margin: 0 auto;
+    font-size: 13px;
+    text-align: center;
+    }
+	.verify-text{
+	    float: left;
+		margin-top: 57px;
+	    font-size: 18px;
+	    width: 100%;
+		font-family: fontsan;
+	    color: gray; 
+	    text-align: center;
+	}
+	.input-act input[type="submit"]{
+    	background: gray;
+        border: none;
+        outline: none;
+        float: left;
+        padding: 13px;
+        font-family: fontsan;
+        color: white;
+        width: 100%;
+        font-weight: bold;
+        font-size: 18px;
+	}
+
+    .input-act1 input[type="submit"]{
+        background: #f18901;
+    border: none;
+    outline: none;
+    float: left;
+    padding: 13px;
+    font-family: fontsan;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+    }
+
+
+
+
+	.input-item{
+		    float: left;
+    width: 100%;
+    text-align: center;
+	}
+
+	 
+.numb-text{
+	color:white;
+	width:100%;
+	float:left;
+}
+.card2 p{
+	margin-top: 11px;
+	font-family: fontsan;
+    color: #525050;
+    padding-left: 16px;
+    font-size: 12px;
+    float: right;
+    width: 148px;
+    
+}
+.line-orange{
+	margin-top:20px;
+	    float: left;
+    width: 100%;
+    background: #f37022;
+    height: 30px;
+}
+.line-gray{
+	    float: left;
+    margin-top: 11px;
+    /* height: 30px; */
+    padding: 7px 0;
+    width: 100%;
+    background: #bfbfbf;
+}
+.info-text2{
+    float: left;
+    width: 100%;
+    margin-top: 63px;
+     
+    padding-bottom: 23px;
+    text-align: center;
+}
+.numb-text2{
+	 color: white;
+    width: 50%;
+    margin-left: 17px;
+    font-size: 14px;
+    float: left;
+    margin-top: 24px;
+}
+.text-warning{
+        float: left;
+    font-family: fontsan;
+    width: 98%;
+    font-size: 13px;
+    margin-top: 63px;
+    padding-bottom: 23px; 
+    padding-left: 9px;
+}
+
+.disabled_btn{
+  background: #8a8a8a;
+    border: none;
+    outline: none;
+    float: left;
+    padding: 13px;
+    font-family: fontsan;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;  
+}
+#error_field{
+        margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #c13030;
+}
+#error_field2{
+        margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #c13030;
+}
+.numb-text3{
+	    color: white;
+    width: 137px;
+    margin-left: 14px;
+    font-size: 12px;
+    float: left;
+}
+.cards-holder{
+	    float: left;
+    width: 100%;
+    padding-bottom: 64px;
+}
+.inputs{
+  float: left;
+    width: 47px;
+    font-size: 15px;
+    padding: 5px 3px;
+    border: none;
+}
+.inputs:focus{
+    outline: none;
+}
+
+.inputs2{
+padding: 3px 0px;
+    float: right;
+    font-size: 11px;
+    width: 40px;
+    /* margin-right: 0px; */
+    border: none;
+    margin-top: 23px;
+}
+.inputs3{
+	padding: 3px;
+    float: right;
+    width: 46px;
+    margin-right: 16px;
+    border: none;
+}
+	.card1{
+		height: 140px;
+		padding: 19px 10px;
+    margin: 0 auto;
+    width: 230px;
+    border-radius: 15px;
+    background: #f37022;
+	}
+
+	.card2{
+		    height: 140px;
+    padding: 19px 0px;
+    margin: 0 auto;
+    width: 250px;
+    margin-top: 20px;
+    border: 1px solid #f37022;
+    border-radius: 15px
+	} 
+}	
+ 
+ .success-items{ 
+ }
+ .success-text img
+ {  
+    padding-bottom: 30px;
+    width: 130px;
+    margin-top: 40px;
+  
+ }
+
+ .card-info{
+        width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+ }
+
+.card-info-error{
+        width: 90%;
+    font-size: 17px;
+    margin: 0 auto;
+    text-align: center;
+}
+ .success-text{
+    color:#f08201;
+    text-align: center;
+    padding-bottom: 30px;
+ }
+ .success-text span{
+    font-size: 23px;
+    margin-top: 30px;
+ }
+
+ .info-value{
+       font-size: 16px;
+    line-height: 32px;
+    color: rgb(59,59,59);
+    font-weight: bold;
+ }
+.notif-error{
+    text-align: center;
+}
+ .info-key{
+    width: 102px;
+    line-height: 28px;
+    float: left;
+    font-size: 14px;
+    padding-left: 35px;
+ }
+
+ /*-------------second design-------*/
+                                                         
+ .card-wrapper{
+        border-bottom: 4px solid #cccccc;
+    height: 176px;
+    background: white;
+    width: 318px;
+    border-radius: 8px;
+    margin: 0 auto;
+ }
+
+ .card-number-input{
+       border-bottom: 1px solid #EC6501;
+    width: 296px;
+    height: 72px;
+    margin: 0px auto;
+ }
+
+ .card-info-inputs{
+    width: 296px;
+    height: 72px;
+    margin: 0px auto;
+ }
+
+ .title-input{
+       color: #929292;
+    font-size: 13px;
+    padding-bottom: 7px;
+    padding-top: 18px;
+
+ }
+
+ .icon{
+        width: 46px;
+    height: 26px;
+    float: left; 
+
+ }
+ .icon img{
+        height: 29px;
+ }
+  .icon2{
+        width: 46px;
+    height: 26px;
+    float: right; 
+
+ }
+ .icon2 img{
+           padding-left: 10px;
+    height: 25px;
+ } 
+ 
+input[type="tel"]:focus{
+    outline: none;
+ }
+
+ .card-info-inputs{
+    width: 296px;
+    height: 72px;
+    margin: 0px auto;
+    padding-bottom: 5px;
+ }
+
+.card-exp{
+      float: left;
+    width: 135px;
+        margin-top: 6px;
+    border-bottom: 1px solid #EC6501;
+}
+.card-cvc{
+             float: left;
+    margin-left: 21px;
+    width: 135px;
+    margin-top: 6px;
+    border-bottom: 1px solid #EC6501;
+}
+input[type="tel"]:focus{
+    outline: none
+}
+ .mm{
+       float: left;
+    width: 36px;
+    font-size: 16px;
+    border: none;
+        font-weight: bold;
+    padding:4px;
+ }
+ .mm,.yy:focus{
+    outline: none
+ }
+ .csc:focus{
+    outline: none;
+ }
+ .csc{
+      float: left;
+    width: 36px;
+    font-size: 16px;
+    border: none;
+        font-weight: bold;
+    padding:4px;
+ }
+ .yy{    font-size: 16px;
+    float: right;
+    padding: 4px;
+        border: none;
+    width: 36px;
+        font-weight: bold;
+    margin-right: 38%;
+ }
+
+ .card-cvc input{
+        border:1px solid;
+    width: 146px;
+ }
+
+.title-input2{
+     color: #929292;
+    float: left;
+    width: 100%;
+}
+.title-input2 img{
+          padding-top: 4px;
+    padding-left: 12px;
+    margin-top: 14px;
+}
+ .title-input2 span{
+       float: left;
+    font-size: 13px;
+    padding-top: 28px;
+ }
+
+ .card-exp-text{
+        float: left;
+    width: 50%;
+ }
+ .card-cvc-text{
+    float: right;
+    width: 37%;
+ }
+
+ .card-cvc input[type="tel"]{
+    border:none;
+ }
+
+ 

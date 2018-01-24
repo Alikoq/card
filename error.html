@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>ddd</title>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+			<script src="jquery-1.12.0.min.js"></script>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="container">
+					<div class="container-item"> 
+						<div class="success-items">
+						  
+						  <div class="success-text">
+						  	<img src="./img/error.png"/><br/>
+							  <span >Uğursuz əməliyyat</span>
+
+						  </div>
+						  <div class="card-info-error">
+						  	<span>Kart əlavə edilmədi.</span> 
+						  	<p>
+								Əgər kart məlumatlarınızın düzgünlüyünə əminsinizsə və kartınızda yetərli vəsait varsa, “Bank ilə əlaqə” bölməsinə yazın və ya 117 nömrəsi ilə əlaqə saxlayın.
+						  	</p>
+						  </div>
+						</div>
+					</div> 
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		
+
+    	 	 	$("#csc").keyup(function(){
+    	 	 		if($(this).val().length==3){
+						if($("#pan").val().length!=16){
+    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
+    	 	 				$(':input[type="submit"]').prop('disabled',true);
+    	 	 	 	   		 $(':input[type="submit"]').css('background-color','gray')
+
+    	 	 	 	   }else{
+    	 	 	 	   		 $(':input[type="submit"]').prop('disabled',false);
+    	 	 	 	   		 $(':input[type="submit"]').css('background-color','#f18901')
+    	 	 	 	   }
+    	 	 	   }
+    	 	 		
+    	 	 	})
+	</script>
+</html>
+ 

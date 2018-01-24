@@ -1,0 +1,258 @@
+<html>
+	<head>
+		<title>ddd</title>
+		<meta name="viewport" content="width=device-width" />
+	</head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jquery-1.12.0.min.js"></script>
+    <script src="jquery.autotab.js"></script> 
+
+	<body>
+		<div class="wrapper">
+			<div class="container">
+				<form   action="{url}" method="post" autocomplete="off">
+					<div class="container-item">
+						<div class="info-text">
+							<p >Для подтверждения карты с ее счета
+						спишется и вернется от 0.01 до 0.99 AZN.</p>
+ 						</div>
+						 <div class="cards-holder"> 
+						 	<div class="card-wrapper">  
+						 			<div class="card-number-input">
+						 				<div class="title-input">
+						 					<span>Списать с</span>
+						 				</div>
+						 				<button class="btn">click</button>
+
+						 				<div class="icon"><img class="credit-card-icon" src=" "/></div>
+										<input class="inputs" oninput="check(this,'octet1')" name="first"  id="octet1" type = "tel"  maxlength = "4" autofocus="autofocus" autocomplete="off" placeholder="xxxx"/>
+								 		<input class="inputs" oninput="check(this,'octet2')" name="second" id="octet2"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
+								 		<input class="inputs" oninput="check(this,'octet3')" name="third"  id="octet3" type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
+								 		<input class="inputs" oninput="check(this,'octet4')" name="fourth" id="octet4"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/> 													
+ 						 				<div class="icon2 hide"  id="for-scan">
+						 					<img onclick=" callScanner();return false;" src="./img/ic_scan.png"/>
+						 				</div>
+
+						 				<input type="hidden" id="pan" name="pan"/>
+						 	   		    <input type="hidden" name="id" value="{id}"/>
+						 		    	<input type="hidden" name="holder" value="Holder"/>
+						 			</div> 
+						 			<div class="card-info-inputs">
+						 				<div class="title-input2">
+						 					<span class="card-exp-text">Действует до</span><span class="card-cvc-text">CVV2/CVC2</span> <img src="./img/ic_help.png"/> 
+						 				</div>
+						 				<div class="card-exp">
+						 				 	<input type="tel" maxlength="2" oninput=" check(this, 'mm')" class="inputs mm" id="mm" name="month" placeholder="ММ" autocomplete="off"/>/
+						 				 	<input type="tel" maxlength="2" oninput="check(this, 'yy')" autocomplete="off" class="inputs yy" id="yy" name="year" placeholder="ГГ"/>
+						 				</div>
+						 				 
+						 				<div class="card-cvc">
+									 		<input type="tel" id="csc" name="csc" oninput=" check(this, 'csc')" maxlength="3" class="inputs csc" placeholder="xxx"/>
+						 				</div>
+						 			</div>
+						 	</div> 
+						 	<!-- <div id="for-scan" class="for-scan hide"  >
+						 		<button onclick=" callScanner();return false;">Сканировать</button> 
+						 	</div> -->
+						 	<div id="error_field"> 
+						 		
+						 	</div>
+						 	<div id="error_field2">
+						 		
+						 	</div>
+						
+						 </div>
+					</div>
+					<div class="input-act">
+					 	<input class="enabled_btn" type="submit" disabled="" value="Продолжить">
+				    </div>
+			    </form>
+			</div>
+		</div>
+	</body>
+
+	<script>
+    	 showScannerButton(true);
+    	function callScanner(){
+    	 	window.location.href="./scanSourceCard";
+    	 }
+
+    	 function showScannerButton(visible){
+    	 	var for_scan = document.getElementById('for-scan').classList;
+    	 	if(visible==true){
+    	 		if(for_scan.contains("hide")){
+    	 			for_scan.remove("hide");
+    	 			for_scan.add("show");
+    	 		}
+    	 		 
+    	 	}else{
+    	 		if(for_scan.contains("show")){
+    	 			for_scan.remove("show");
+    	 			for_scan.add("hide");
+    	 		}
+    	 	}
+    	 }
+
+    	 
+    	//    fillSourceCardData("0123456789123456","08","20");
+
+    	 function fillSourceCardData(cardNumber,expMonth,expYear){
+    	 	 	var cardNumberArr= cardNumber.split('');
+    	 	 	var createdArr =[];
+    	 	 	var leng;
+    	 	 	var count=0;
+    	 	 	for(var i=0;i<cardNumber.length; i+=4){
+    	 	 	   createdArr.push(cardNumber.substr(i,4))
+    	 	 	}
+    	 	 	createdArr.join();
+    	 	 	 
+  
+
+  				 $("#mm ").val(expMonth);
+  				 $("#yy").val(expYear);
+
+
+    	 	 	 $("#octet1").val(createdArr[0]);
+		    	  $("#octet2").val(createdArr[1]);
+		       	 $("#octet3").val(createdArr[2]);
+		       	 $("#octet4").val(createdArr[3]);
+
+		      	 $("#pan").val(
+		       	 		$("#octet1").val()+
+		    	  	 	$("#octet2").val()+
+		    	 	 	$("#octet3").val()+
+		    	  	 	$("#octet4").val()
+		        	 	)
+		      	  
+    	 }
+
+
+    	 $(document).ready(function(){
+	
+
+				$("#octet1").keyup(function(){
+					var values=$("#octet1").val();
+					var firstChar = values.substr(0,1);
+					var twoChar = values.substr(0,2);
+				 
+					var master_card = ["51","52","53","54","55"];
+					var maestro_card = ["50","56","57","58","6"];
+
+					var master_cardImg="./img/master-card.png";
+					var maestro_cardImg="./img/maestro-card.png";
+					var visa_cardImg ="./img/visa-card.png";
+
+					 if(firstChar!="4"){
+					 	if(master_card.indexOf(twoChar)!=-1){
+
+					 		 $(".credit-card-icon").attr("src",master_cardImg);
+
+					 		console.log("ch: "+twoChar);
+
+					 	}else if(maestro_card.indexOf(twoChar)!=-1){
+					 		 $(".credit-card-icon").attr("src",maestro_cardImg);
+					 		console.log("ch2: "+twoChar);
+					 	}
+					 }else{
+					 	if(firstChar=="4"){
+					 		 $(".credit-card-icon").attr("src",visa_cardImg);
+					 		console.log("ch: "+firstChar)
+					 	}
+					 }
+
+				})
+    	 	 	$("#octet4").keyup(function(){
+
+    	 	 		$("#pan").val(
+	    	 	 		$("#octet1").val()+
+		    	 	 	$("#octet2").val()+
+		    	 	 	$("#octet3").val()+
+		    	 	 	$("#octet4").val()
+    	 	 		);
+
+						if($("#pan").val().length!=16){
+    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
+    	 	 				$(':input[type="submit"]').prop('disabled',true);
+    	 	 	 	    	 $(':input[type="submit"]').css('background-color','gray')
+
+    	 	 	 	   }
+    	 	 	 	   else{ 
+    	 	 	 	    	$("#error_field").text("")
+    	 	 	 	   	    $(':input[type="submit"]').prop('disabled',false);
+    	 	 	 	   	    $(':input[type="submit"]').css('background-color','gray')
+    	 	 	 	   }
+    	 	 	    
+    	 	 	})
+
+    	 	 	$("#csc").keyup(function(){
+    	 	 		if($(this).val().length==3){
+						if($("#pan").val().length!=16){
+    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
+    	 	 				$(':input[type="submit"]').prop('disabled',true);
+    	 	 	 	   		 $(':input[type="submit"]').css('background-color','gray')
+
+    	 	 	 	   }else{
+    	 	 	 	   	$("#error_field").text("")
+    	 	 	 	   		 $(':input[type="submit"]').prop('disabled',false);
+    	 	 	 	   		 $(':input[type="submit"]').css('background-color','#f18901')
+    	 	 	 	   }
+    	 	 	   }else{
+    	 	 	   	$("#error_field").text("Пожалуйста, заполните все поля")
+    	 	 				$(':input[type="submit"]').prop('disabled',true);
+    	 	 	 	   		 $(':input[type="submit"]').css('background-color','gray')
+    	 	 	   }
+    	 	 		
+    	 	 	})
+    	 	 	
+    	 })
+
+    </script>
+	   <script type="text/javascript">
+ 
+        $(document).ready (function() {
+        	
+
+			setTimeout(function(){
+				 $("#octet1").trigger('click');
+				},233)
+
+        	$(".inputs").focus();
+                $(".inputs").keyup(function () {
+                    if (this.value.length === this.maxLength) {
+                        $(this).next('.inputs').focus();
+                        var s = $("#octet4").val().length
+                      	if(s==4){
+                      		$(".mm").focus();
+                      		if($(".mm").val().length ){
+                      			$('.yy').focus();
+                      			if($(".yy").val().length){
+                      				$(".csc").focus();
+                      			}
+                      		}
+                      	};
+                    }
+                });
+            });
+
+            $(function () {
+                $(".inputs").keyup(function () {
+                    if (this.value.length === 0) {
+                        $(this).prev('.inputs').focus();
+                    }
+                });
+            });  
+
+            function check(obj, id) {
+                var reg = new RegExp('^[0-9]+$');
+                str = obj.value;
+                temp = str;
+                str = str.substr(str.length - 1, str.length);
+                var firstIndex = temp.indexOf(str);
+                if (!reg.test(str)) {
+                    document.getElementById(id).value = temp.substr(0, firstIndex);
+                }
+            }
+
+        </script>
+</html>
+ 
