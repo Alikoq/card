@@ -208,15 +208,18 @@
 
     </script>
 	   <script type="text/javascript">
+		   
+		   
+	   	function myFocusFunc() {
+	   		$("#octet1").focus().click();
+	   	};
+	   	$(document).ready(myFocusFunc);
+	   	
  
         $(document).ready (function() {
         	
 
-			setTimeout(function(){
-				 $("#octet1").trigger('click');
-				},233)
-
-        	$(".inputs").focus();
+			        	$(".inputs").focus();
                 $(".inputs").keyup(function () {
                     if (this.value.length === this.maxLength) {
                         $(this).next('.inputs').focus();
