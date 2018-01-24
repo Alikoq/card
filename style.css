@@ -447,5 +447,5 @@ input[type="tel"]:focus{
  .card-cvc input[type="tel"]{
     border:none;
  }
-
+input[type="submit"] {-webkit-appearance: none}
  
