@@ -403,14 +403,13 @@ input[type="tel"]:focus{
 input[type="tel"]:focus{
     outline: none
 }
- .mm{
-       float: left;
+ .mm{float: left;
     width: 36px;
     font-size: 16px;
     border: none;
-    color:#6B6B6B;
-        font-weight: bold;
-    padding:4px;
+    color: #6B6B6B;
+    font-weight: bold;
+    padding: 3px 0px 1px 3px;
  }
  .mm,.yy:focus{
     outline: none
@@ -427,11 +426,12 @@ input[type="tel"]:focus{
         font-weight: bold;
     padding:4px;
  }
+
  .yy{   
    color:#6B6B6B;
   font-size: 16px;
-    float: right;
-    padding: 4px;
+    float: right; 
+	    padding: 3px 0px 1px 3px;
         border: none;
     width: 36px;
         font-weight: bold;
