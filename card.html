@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>ddd</title>
+		<title>Добавление карты</title>
 		<meta name="viewport" content="width=device-width" />
 	</head>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -19,12 +19,11 @@
 						 <div class="cards-holder"> 
 						 	<div class="card-wrapper">  
 						 			<div class="card-number-input">
-						 		    	       <div class="title-input">
-						 					<span>Списать с</span>
+						 				<div class="title-input">
+						 					<span>Номер карты </span>
 						 				</div>
-						 				 
 						 				<div class="icon"><img class="credit-card-icon" src=" "/></div>
-										<input class="inputs" oninput="check(this,'octet1')" name="first"  id="octet1" type = "tel"  maxlength = "4"  placeholder="xxxx" autofocus/>
+										<input class="inputs" oninput="check(this,'octet1')" name="first"  id="octet1" type = "tel"  maxlength = "4" autofocus="autofocus" autocomplete="off" placeholder="xxxx"/>
 								 		<input class="inputs" oninput="check(this,'octet2')" name="second" id="octet2"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
 								 		<input class="inputs" oninput="check(this,'octet3')" name="third"  id="octet3" type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
 								 		<input class="inputs" oninput="check(this,'octet4')" name="fourth" id="octet4"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/> 													
@@ -38,11 +37,11 @@
 						 			</div> 
 						 			<div class="card-info-inputs">
 						 				<div class="title-input2">
-						 					<span class="card-exp-text">Действует до</span><span class="card-cvc-text">CVV2/CVC2</span> <img src="./img/ic_help.png"/> 
+						 					<span class="card-exp-text">Срок действия</span><span class="card-cvc-text">CVV2/CVC2</span>  
 						 				</div>
 						 				<div class="card-exp">
-						 				 	<input type="tel" maxlength="2" oninput=" check(this, 'mm')" class="inputs mm" id="mm" name="month" placeholder="ММ" autocomplete="off"/>/
-						 				 	<input type="tel" maxlength="2" oninput="check(this, 'yy')" autocomplete="off" class="inputs yy" id="yy" name="year" placeholder="ГГ"/>
+						 				 	<input type="tel" maxlength="2"   oninput="maxCheck(this,'mm')" class="inputs mm" id="mm" name="month" placeholder="ММ" autocomplete="off"/>/
+						 				 	<input type="tel" maxlength="2"   oninput="check(this, 'yy')" autocomplete="off" class="inputs yy" id="yy" name="year" placeholder="ГГ"/>
 						 				</div>
 						 				 
 						 				<div class="card-cvc">
@@ -50,6 +49,9 @@
 						 				</div>
 						 			</div>
 						 	</div> 
+						 	<div class="input-act-card">
+					 			<input class="enabled_btn" type="submit" disabled="" value="ДОБАВИТЬ КАРТУ">
+				   			 </div>
 						 	<!-- <div id="for-scan" class="for-scan hide"  >
 						 		<button onclick=" callScanner();return false;">Сканировать</button> 
 						 	</div> -->
@@ -62,9 +64,7 @@
 						
 						 </div>
 					</div>
-					<div class="input-act">
-					 	<input class="enabled_btn" type="submit" disabled="" value="Продолжить">
-				    </div>
+					
 			    </form>
 			</div>
 		</div>
@@ -135,10 +135,10 @@
 					var twoChar = values.substr(0,2);
 				 
 					var master_card = ["51","52","53","54","55"];
-					var maestro_card = ["50","56","57","58","6"];
+					 
 
 					var master_cardImg="./img/master-card.png";
-					var maestro_cardImg="./img/maestro-card.png";
+					 
 					var visa_cardImg ="./img/visa-card.png";
 
 					 if(firstChar!="4"){
@@ -193,7 +193,7 @@
     	 	 	 	   }else{
     	 	 	 	   	$("#error_field").text("")
     	 	 	 	   		 $(':input[type="submit"]').prop('disabled',false);
-    	 	 	 	   		 $(':input[type="submit"]').css('background-color','#f18901')
+    	 	 	 	   		 $(':input[type="submit"]').css('background-color','#EC6501')
     	 	 	 	   }
     	 	 	   }else{
     	 	 	   	$("#error_field").text("Пожалуйста, заполните все поля")
@@ -206,18 +206,19 @@
     	 })
 
     </script>
-	   <script type="text/javascript">
-	 
- 
-        $(document).ready (function() {
-        	
-		$('#octet1').focus(function(){
-        		 $(this).keypress();
+	   <script type="text/javascript"> 
+	   	
+        $(document).ready (function() { 
+
+        	$.event.trigger({
+        		 type:"openKeyboard",
+        		 message:"22",
+
         	});
-	 	$(".inputs").focus();
-		
-                $(".inputs").keyup(function () {
-                    if (this.value.length === this.maxLength) {
+        	
+         	  $(".inputs").focus();
+                   $(".inputs").keyup(function () {
+                     if (this.value.length === this.maxLength) {
                         $(this).next('.inputs').focus();
                         var s = $("#octet4").val().length
                       	if(s==4){
@@ -229,8 +230,8 @@
                       			}
                       		}
                       	};
-                    }
-                });
+                     }
+                 });
             });
 
             $(function () {
@@ -250,9 +251,20 @@
                 if (!reg.test(str)) {
                     document.getElementById(id).value = temp.substr(0, firstIndex);
                 }
-            };
-		   
-		   $("#octet1").focus().click();
+            }
+
+            function maxCheck(obj,id){
+            	 var reg = new RegExp('^[0-9]+$');
+                str = obj.value;
+                var inputVal  = document.getElementById(id);
+                temp = str;
+                str = str.substr(str.length - 1, str.length);
+                var firstIndex = temp.indexOf(str);
+                if (!reg.test(str)) {
+                    document.getElementById(id).value = temp.substr(0, firstIndex);
+                }  
+
+            }
 
         </script>
 </html>
