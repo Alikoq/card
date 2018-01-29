@@ -93,7 +93,7 @@
         font-weight: bold;
         font-size: 18px;
 	}
-    .input-act-card{
+    .input-act--c{
         margin: 20px auto;
     text-align: center;
     width: 100%;
@@ -398,7 +398,7 @@ input[type="tel"]:focus{
              float: left;
     margin-left: 21px;
     width: 135px;
-    margin-top: 6px;
+    margin-top: 1px;
     border-bottom: 1px solid #EC6501;
 }
 input[type="tel"]:focus{
