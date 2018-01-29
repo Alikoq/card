@@ -32,8 +32,7 @@
     display: block;
    }
      .wrapper{
-	    width: 100%;
-	      
+		width: 100%;
 	    margin:0 auto; 	
 	}	
 	.container{
@@ -86,6 +85,7 @@
         border: none;
         outline: none;
         float: left;
+        border-radius: 8px;
         padding: 13px;
         font-family: fontsan;
         color: white;
@@ -93,6 +93,24 @@
         font-weight: bold;
         font-size: 18px;
 	}
+    .input-act-card{
+        margin: 20px auto;
+    text-align: center;
+    width: 100%;
+    }
+    .input-act-card input[type="submit"]{
+        background: gray;
+    border: none;
+    outline: none;
+    border-radius: 9px;
+    /* float: left; */
+    padding: 13px;
+    font-family: fontsan;
+    color: white;
+    width: 318px;
+    font-weight: bold;
+    font-size: 18px;
+    }
 
     .input-act1 input[type="submit"]{
         background: #f18901;
@@ -211,6 +229,7 @@
 }
 .inputs{
   float: left;
+  color:#6B6B6B ;
     width: 47px;
     font-size: 15px;
     padding: 5px 3px;
@@ -389,6 +408,7 @@ input[type="tel"]:focus{
     width: 36px;
     font-size: 16px;
     border: none;
+    color:#6B6B6B;
         font-weight: bold;
     padding:4px;
  }
@@ -399,6 +419,7 @@ input[type="tel"]:focus{
     outline: none;
  }
  .csc{
+       color:#6B6B6B;
       float: left;
     width: 36px;
     font-size: 16px;
@@ -406,7 +427,9 @@ input[type="tel"]:focus{
         font-weight: bold;
     padding:4px;
  }
- .yy{    font-size: 16px;
+ .yy{   
+   color:#6B6B6B;
+  font-size: 16px;
     float: right;
     padding: 4px;
         border: none;
@@ -448,5 +471,5 @@ input[type="tel"]:focus{
  .card-cvc input[type="tel"]{
     border:none;
  }
-input[type="submit"] {-webkit-appearance: none}
+
  
