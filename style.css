@@ -93,7 +93,7 @@
         font-weight: bold;
         font-size: 18px;
 	}
-    .input-act--c{
+    .input-act-card{
         margin: 20px auto;
     text-align: center;
     width: 100%;
@@ -234,7 +234,6 @@
     font-size: 15px;
     padding: 5px 3px;
     border: none;
-	font-weight:bold;
 }
 .inputs:focus{
     outline: none;
@@ -398,7 +397,7 @@ input[type="tel"]:focus{
              float: left;
     margin-left: 21px;
     width: 135px;
-    margin-top: 1px;
+    margin-top: 6px;
     border-bottom: 1px solid #EC6501;
 }
 input[type="tel"]:focus{
@@ -410,7 +409,7 @@ input[type="tel"]:focus{
     border: none;
     color: #6B6B6B;
     font-weight: bold;
-    padding: 0px 0px 1px 3px;
+    padding: 3px 0px 1px 3px;
  }
  .mm,.yy:focus{
     outline: none
@@ -427,12 +426,11 @@ input[type="tel"]:focus{
         font-weight: bold;
     padding:4px;
  }
-
  .yy{   
    color:#6B6B6B;
   font-size: 16px;
     float: right; 
-	    padding: 0px 0px 1px 3px;
+	    padding: 3px 0px 1px 3px;
         border: none;
     width: 36px;
         font-weight: bold;
