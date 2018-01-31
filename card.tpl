@@ -12,7 +12,7 @@
 	<body>
 		<div class="wrapper">
 			<div class="container">
-				<form   action="success.html" method="post" autocomplete="off">
+				<form   action="{url}" method="post" autocomplete="off">
 					<div class="container-item">
 						<span class="info-text"> </span>
 						 <div class="cards-holder">
