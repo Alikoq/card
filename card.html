@@ -153,7 +153,9 @@
 					 	if(firstChar=="4"){
 					 		 $(".credit-card-icon").attr("src",visa_cardImg);
 					 		console.log("ch: "+firstChar)
-					 	}
+					 	}else{
+							$("#error_field2").text("Пожалуйста, заполните все поля");
+						}
 					 }
 
 				})
