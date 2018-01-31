@@ -143,20 +143,17 @@
 
 					 if(firstChar!="4"){
 					 	if(master_card.indexOf(twoChar)!=-1){
-
-					 		 $(".credit-card-icon").attr("src",master_cardImg);
-
-					 		console.log("ch: "+twoChar);
-
-					 	}
+ 							 $(".credit-card-icon").attr("src",master_cardImg); 
+							
+					 	}else{
+						$("#error_field2").text("Тип карты не верный");
+						}
 					 }else{
 					 	if(firstChar=="4"){
 					 		 $(".credit-card-icon").attr("src",visa_cardImg);
 					 		console.log("ch: "+firstChar)
-					 	}else{
+					 	} 
 							
-							$("#error_field2").text("Тип карты не верный");
-						}
 					 }
 
 				})
