@@ -101,6 +101,7 @@
     .input-act-card input[type="submit"]{
         background: gray;
     border: none;
+	    -webkit-appearance: none;
     outline: none;
     border-radius: 9px;
     /* float: left; */
