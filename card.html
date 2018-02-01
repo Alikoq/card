@@ -127,8 +127,15 @@
 
 
     	 $(document).ready(function(){
-	
-
+	          var i=0;
+    	 	 $("#submit_btn").on("click",function(){
+    	    	    i+=1;	 
+    	 		if(i==2){
+    	 		 console.log("btn 2 defe"+i)
+    	 		 $(':input[type="submit"]').prop('disabled',true);
+    	 	 	      $(':input[type="submit"]').css('background-color','gray')
+    	 		 }	
+    	 		})
 				$("#octet1").keyup(function(){
 					var values=$("#octet1").val();
 					var firstChar = values.substr(0,1);
