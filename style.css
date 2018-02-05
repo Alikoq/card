@@ -317,18 +317,18 @@ padding: 3px 0px;
     
 @media(max-width:335px){
      .input-act-card input[type="submit"]{
-        background: gray;
+       background: gray;
     border: none;
-        -webkit-appearance: none;
+    -webkit-appearance: none;
     outline: none;
     border-radius: 9px;
     /* float: left; */
-    padding: 13px;
+    padding: 10px;
     font-family: fontsan;
     color: white;
     width: 297px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
     }
     .card-wrapper{
         border-bottom: 4px solid #cccccc;
