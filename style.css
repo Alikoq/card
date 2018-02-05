@@ -332,17 +332,17 @@ padding: 3px 0px;
     }
     .card-wrapper{
         border-bottom: 4px solid #cccccc;
-        height: 176px;
-        background: white;
-        width: 297px;
-        border-radius: 8px;
-        margin: 0 auto;
+    height: 157px;
+    background: white;
+    width: 297px;
+    border-radius: 8px;
+    margin: 0 auto;
  }
    .card-number-input {
-        border-bottom: 1px solid #EC6501;
-        width: 283px;
-        height: 76px;
-        margin: 0px auto;
+           border-bottom: 1px solid #EC6501;
+    width: 283px;
+    height: 71px;
+    margin: 0px auto;
     }
     .card-info-inputs{
             width: 283px;
