@@ -93,7 +93,7 @@
     	 }
 
     	 
-    	//    fillSourceCardData("0123456789123456","08","20");
+    	fillSourceCardData("0123456789123456","03","2017");
 
     	 function fillSourceCardData(cardNumber,expMonth,expYear){
     	 	 	var cardNumberArr= cardNumber.split('');
@@ -106,13 +106,16 @@
     	 	 	createdArr.join();
     	 	 	 
   
+  				if(expMonth !=null){
+     			   $("#mm ").val(expMonth);
+  				   $("#yy").val(expYear.substr(2,3));
+	
+  				}   
 
-  				 $("#mm ").val(expMonth);
-  				 $("#yy").val(expYear);
 
 
     	 	 	 $("#octet1").val(createdArr[0]);
-		    	  $("#octet2").val(createdArr[1]);
+		         $("#octet2").val(createdArr[1]);
 		       	 $("#octet3").val(createdArr[2]);
 		       	 $("#octet4").val(createdArr[3]);
 
