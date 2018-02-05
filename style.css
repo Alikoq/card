@@ -330,22 +330,43 @@ padding: 3px 0px;
     
 @media(max-width:335px){
     .card-wrapper{
-    border-bottom: 4px solid #cccccc;
-    height: 176px;
-    background: white;
-    width: 297px;
-    border-radius: 8px;
-    margin: 0 auto;
+	    border-bottom: 4px solid #cccccc;
+	    height: 176px;
+	    background: white;
+	    width: 297px;
+	    border-radius: 8px;
+	    margin: 0 auto;
  }
+   .card-number-input {
+	    border-bottom: 1px solid #EC6501;
+	    width: 270px;
+	    height: 76px;
+	    margin: 0px auto;
+	}
+	
 }
 
-
- .card-number-input{
+@media(max-width:335px){
+    .card-wrapper{
+	    border-bottom: 4px solid #cccccc;
+	    height: 176px;
+	    background: white;
+	    width: 318px;
+	    border-radius: 8px;
+	    margin: 0 auto;
+ }
+  .card-number-input{
        border-bottom: 1px solid #EC6501;
     width: 296px;
      height: 76px;
     margin: 0px auto;
  }
+	
+}
+
+
+
+
 
  .card-info-inputs{
     width: 296px;
