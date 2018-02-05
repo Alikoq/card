@@ -58,12 +58,12 @@
     border-right: none;
 	}
 	.info-text{
-       float: left;
-    color: #7D7D7D;
-    font-family: fontsan;
-    width: 100%;
-    margin-top: 31px;
-    padding-bottom: 23px;
+           float: left;
+     	   color: #7D7D7D;
+           font-family: fontsan;
+           width: 100%;
+           margin-top: 3px;
+           padding-bottom: 23px;
 	}
     .info-text p{
               width: 290px;
