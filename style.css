@@ -327,15 +327,18 @@ padding: 3px 0px;
  }
 
  /*-------------second design-------*/
-                                                         
- .card-wrapper{
-        border-bottom: 4px solid #cccccc;
+    
+@media(max-width:335px){
+    .card-wrapper{
+    border-bottom: 4px solid #cccccc;
     height: 176px;
     background: white;
-    width: 318px;
+    width: 297px;
     border-radius: 8px;
     margin: 0 auto;
  }
+}
+
 
  .card-number-input{
        border-bottom: 1px solid #EC6501;
