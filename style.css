@@ -344,9 +344,15 @@ padding: 3px 0px;
 	    margin: 0px auto;
 	}
 	
+	.icon2 img{
+           padding-left: 10px;
+    height: 22px;
+ } 
+ 
+	
 }
 
-@media(max-width:335px){
+@media(min-width:335px){
     .card-wrapper{
 	    border-bottom: 4px solid #cccccc;
 	    height: 176px;
@@ -362,6 +368,11 @@ padding: 3px 0px;
     margin: 0px auto;
  }
 	
+	.icon2 img{
+           padding-left: 10px;
+    height: 25px;
+ } 
+ 
 }
 
 
@@ -397,10 +408,6 @@ padding: 3px 0px;
     float: right; 
 
  }
- .icon2 img{
-           padding-left: 10px;
-    height: 25px;
- } 
  
 input[type="tel"]:focus{
     outline: none;
