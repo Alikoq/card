@@ -227,16 +227,27 @@
         	});
         	
          	  $(".inputs").focus();
-                   $(".inputs").on('keyup',function () {
+                   $(".inputs").on('keyup',function (e) {
 
                    	if($("#octet1").val().length<4){
                    		$(this.target).val('');
                    		$("#octet1").focus();
                    	}
+                   	console.log('value insert')
+ 
+                   		if (this.value.length === 0 )  {
+	                    	if($("#octet1").val().length===0){
+	                       		$(".credit-card-icon").css("display","none");
+	                      	}
+                            $(this).prev('.inputs').focus();
+                        }
+                    console.log(e.which);
 
                      if (this.value.length === this.maxLength) {
+                     	
                         $(this).next('.inputs').focus();
-                        var s = $("#octet4").val().length
+                        console.log('de')
+                        var s = $("#octet4").val().length;
                       	if(s==4){
                       		$(".mm").focus();
                       		if($(".mm").val().length ){
@@ -250,20 +261,7 @@
                  });
             });
 
-
-          
-            
-                $(".inputs").keyup(function () {
-                	inputLength =$(this).val().length; 
-                     if (this.value.length === 0 )  {
-                     	if($("#octet1").val().length===0){
-                     		$(".credit-card-icon").css("display","none");
-                     	}
-
-                          $(this).prev('.inputs').focus();
-                       }
-                });
-         
+  
 
             function check(obj, id) {
                 var reg = new RegExp('^[0-9]+$');
@@ -289,6 +287,6 @@
 
             }
 
-        </script>	 
+        </script>  
 </html>
  
