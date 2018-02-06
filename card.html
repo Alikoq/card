@@ -153,6 +153,7 @@
 
 					 if(firstChar!="4"){
 					 	if(master_card.indexOf(twoChar)!=-1){
+							$(".credit-card-icon").css("display","none");
  							 $(".credit-card-icon").attr("src",master_cardImg); 
 							 $("#error_field2").text("");
 					 	}else{
@@ -160,6 +161,7 @@
 						}
 					 }else{
 					 	if(firstChar=="4"){
+							$(".credit-card-icon").css("display","none");
 					 		 $(".credit-card-icon").attr("src",visa_cardImg);
 							$("#error_field2").text("");
 					 		console.log("ch: "+firstChar)
