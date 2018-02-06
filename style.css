@@ -275,7 +275,7 @@ padding: 3px 0px;
  }
 
  .card-info{
-        width: 90%;
+   width: 300px;
     margin: 0 auto;
     margin-top: 30px;
  }
@@ -317,32 +317,32 @@ padding: 3px 0px;
     
 @media(max-width:335px){
      .input-act-card input[type="submit"]{
-       background: gray;
+        background: gray;
     border: none;
-    -webkit-appearance: none;
+        -webkit-appearance: none;
     outline: none;
     border-radius: 9px;
     /* float: left; */
-    padding: 10px;
+    padding: 13px;
     font-family: fontsan;
     color: white;
     width: 297px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 18px;
     }
     .card-wrapper{
         border-bottom: 4px solid #cccccc;
-    height: 157px;
-    background: white;
-    width: 297px;
-    border-radius: 8px;
-    margin: 0 auto;
+        height: 176px;
+        background: white;
+        width: 297px;
+        border-radius: 8px;
+        margin: 0 auto;
  }
    .card-number-input {
-           border-bottom: 1px solid #EC6501;
-    width: 283px;
-    height: 71px;
-    margin: 0px auto;
+        border-bottom: 1px solid #EC6501;
+        width: 283px;
+        height: 76px;
+        margin: 0px auto;
     }
     .card-info-inputs{
             width: 283px;
@@ -352,9 +352,9 @@ padding: 3px 0px;
     }
     
     .icon2 img{
-      padding-left: 10px;
-      height: 20px;
-    } 
+           padding-left: 10px;
+    height: 22px;
+ } 
 
  .card-exp{
       float: left;
@@ -411,7 +411,7 @@ padding: 3px 0px;
     
     .icon2 img{
            padding-left: 10px;
-    height: 20px;
+    height: 25px;
    } 
 
     .card-info-inputs{
