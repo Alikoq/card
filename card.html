@@ -242,20 +242,16 @@
                  });
             });
 
-              $(".inputs").keyup(function () {
-                	inputLength =$(this).val().length;
-
-                	 
-
+            $(".inputs").keyup(function () {
+                 inputLength =$(this).val().length;
                      if (this.value.length === 0 )  {
-                     	if($("#octet1").length===0){
+                     	if($("#octet1").val().length===0){
                      		$(".credit-card-icon").attr("src",""); 
                      	}
 
                           $(this).prev('.inputs').focus();
                        }
                 });
-
             function check(obj, id) {
                 var reg = new RegExp('^[0-9]+$');
                 str = obj.value;
