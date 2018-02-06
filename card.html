@@ -241,12 +241,13 @@
 	                      	}
                             $(this).prev('.inputs').focus();
                         }
-                    console.log(e.which);
-
+			   
+			   $("#error_field2").text( console.log(e.which));
+                   
                      if (this.value.length === this.maxLength) {
                      	
                         $(this).next('.inputs').focus();
-                        console.log('de')
+                        
                         var s = $("#octet4").val().length;
                       	if(s==4){
                       		$(".mm").focus();
