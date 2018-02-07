@@ -178,9 +178,11 @@
 		      	     $("#pan").val(panText.replace(/\s+/g, ''));
 
     	 	 			if($(this).val().length==19){
-    	 	 				$("#mm").focus();
-    	 	 					 
+    	 	 				$("#mm").focus(); 
     	 	 			}
+				 if($("#octet1").val().length===0){
+	                 		$(".credit-card-icon").css("display","none");
+				 }
 
 				})
 
