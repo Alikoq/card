@@ -6,11 +6,12 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 	<script src="jquery-1.12.0.min.js"></script>
     <script src="jquery.autotab.js"></script> 
+    <script src="jquery.mask.js"></script> 
 
 	<body>
 		<div class="wrapper">
 			<div class="container">
-				<form   action="{url}" method="post" autocomplete="off">
+				 
 					<div class="container-item">
 						<div class="info-text">
 							<p >Для подтверждения карты с ее счета
@@ -23,10 +24,10 @@
 						 					<span>Kartın nömrəsi </span>
 						 				</div>
 						 				<div class="icon"><img class="credit-card-icon" src=" "/></div>
-										<input class="inputs" oninput="check(this,'octet1')" name="first"  id="octet1" type = "tel"  maxlength = "4" autofocus="autofocus" autocomplete="off" placeholder="xxxx"/>
-								 		<input class="inputs" oninput="check(this,'octet2')" name="second" id="octet2"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
+										<input class="inputs" oninput="check(this,'octet1')" name="first"  id="octet1" type = "tel"  maxlength = "19"   autocomplete="off" placeholder="xxxx xxxx xxxx xxxx" />
+								 		<!-- <input class="inputs" oninput="check(this,'octet2')" name="second" id="octet2"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
 								 		<input class="inputs" oninput="check(this,'octet3')" name="third"  id="octet3" type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
-								 		<input class="inputs" oninput="check(this,'octet4')" name="fourth" id="octet4"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/> 													
+								 		<input class="inputs" oninput="check(this,'octet4')" name="fourth" id="octet4"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>  -->													
  						 				<div class="icon2 hide"  id="for-scan">
 						 					<img onclick=" callScanner();return false;" src="./img/ic_scan.png"/>
 						 				</div>
@@ -50,7 +51,7 @@
 						 			</div>
 						 	</div> 
 						 	<div class="input-act-card">
-					 			<input class="enabled_btn" type="submit" disabled id="#submit_btn" value="ДОБАВИТЬ КАРТУ">
+					 			<input class="enabled_btn" id="submit_btn" type="submit"  disabled value="ДОБАВИТЬ КАРТУ">
 				   			 </div>
 						 	<!-- <div id="for-scan" class="for-scan hide"  >
 						 		<button onclick=" callScanner();return false;">Сканировать</button> 
@@ -61,12 +62,11 @@
 						 	<div id="error_field2">
 						 		
 						 	</div>
-							 <span class="zz"></span>
 						
 						 </div>
 					</div>
 					
-			    </form>
+			     
 			</div>
 		</div>
 	</body>
@@ -94,17 +94,17 @@
     	 }
 
     	 
-    	//fillSourceCardData("0123456789123456","03","2017");
+          //fillSourceCardData("0123456789123456","03","2017");
 
     	 function fillSourceCardData(cardNumber,expMonth,expYear){
     	 	 	var cardNumberArr= cardNumber.split('');
     	 	 	var createdArr =[];
     	 	 	var leng;
     	 	 	var count=0;
-    	 	 	for(var i=0;i<cardNumber.length; i+=4){
-    	 	 	   createdArr.push(cardNumber.substr(i,4))
-    	 	 	}
-    	 	 	createdArr.join();
+    	 	 	// for(var i=0;i<cardNumber.length; i+=4){
+    	 	 	//    createdArr.push(cardNumber.substr(i,4))
+    	 	 	// }
+    	 	 	// createdArr.join();
     	 	 	 
   
   				if(expMonth !=null){
@@ -115,31 +115,36 @@
 
 
 
-    	 	 	 $("#octet1").val(createdArr[0]);
-		         $("#octet2").val(createdArr[1]);
-		       	 $("#octet3").val(createdArr[2]);
-		       	 $("#octet4").val(createdArr[3]);
-
-		      	 $("#pan").val(
-		       	 		$("#octet1").val()+
-		    	  	 	$("#octet2").val()+
-		    	 	 	$("#octet3").val()+
-		    	  	 	$("#octet4").val()
-		        	 	)
+    	 	 	 $("#octet1").val(cardNumber);
+		         // $("#octet2").val(createdArr[1]);
+		       	 // $("#octet3").val(createdArr[2]);
+		       	 // $("#octet4").val(createdArr[3]);
+		       	 var panText =$("#octet1").val();
+		      	 $("#pan").val(panText.replace(/\s+/g, ''))
 		      	  
     	 }
 
+ 
 
-    	 $(document).ready(function(){
-	          var i=0;
-    	 	 $("#submit_btn").on("click",function(){
+    	 jQuery(function(){
+
+    	 	$("#octet1").mask("9999 9999 9999 9999");
+
+    	 		 var i=0;
+    	 		 $("#octet1").focus();
+
+    	 		$("#submit_btn").on("click",function(){
+    	    	   
     	    	    i+=1;	 
-    	 		if(i==2){
-    	 		 console.log("btn 2 defe"+i)
-    	 		 $(':input[type="submit"]').prop('disabled',true);
-    	 	 	      $(':input[type="submit"]').css('background-color','gray')
-    	 		 }	
+    	 			if(i==2){
+    	 				console.log("btn 2 defe"+i)
+    	 				$(':input[type="submit"]').prop('disabled',true);
+    	 	 	    	 $(':input[type="submit"]').css('background-color','gray')
+
+    	 			}
     	 		})
+
+
 				$("#octet1").keyup(function(){
 					var values=$("#octet1").val();
 					var firstChar = values.substr(0,1);
@@ -154,7 +159,7 @@
 
 					 if(firstChar!="4"){
 					 	if(master_card.indexOf(twoChar)!=-1){
-							$(".credit-card-icon").css("display","block");
+					 		 $(".credit-card-icon").css("display","block");
  							 $(".credit-card-icon").attr("src",master_cardImg); 
 							 $("#error_field2").text("");
 					 	}else{
@@ -162,37 +167,93 @@
 						}
 					 }else{
 					 	if(firstChar=="4"){
-							$(".credit-card-icon").css("display","block");
+					 		 $(".credit-card-icon").css("display","block");
 					 		 $(".credit-card-icon").attr("src",visa_cardImg);
 							$("#error_field2").text("");
 					 		console.log("ch: "+firstChar)
 					 	} 
 							
 					 }
+					  var panText =$("#octet1").val();
+		      	     $("#pan").val(panText.replace(/\s+/g, ''));
+
+    	 	 			if($(this).val().length==19){
+    	 	 				$("#mm").focus();
+    	 	 					 
+    	 	 			}
 
 				})
-    	 	 	$("#octet4").keyup(function(){
 
-    	 	 		$("#pan").val(
-	    	 	 		$("#octet1").val()+
-		    	 	 	$("#octet2").val()+
-		    	 	 	$("#octet3").val()+
-		    	 	 	$("#octet4").val()
-    	 	 		);
+				$("#mm").mask("99");
+				$("#yy").mask("99")
+    	 	 	 
+    	 	 	 $("#mm").keyup(function(){
+    	 	 	 	 if($(this).val().length==2){
+    	 	 				  $("#yy").focus();
+    	 	 			}
+    	 	 	 	if($("#csc").val().length==3){
 
-						if($("#pan").val().length!=16){
+    	 	 	 	if($("#pan").val().length!=16){
     	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
     	 	 				$(':input[type="submit"]').prop('disabled',true);
     	 	 	 	    	 $(':input[type="submit"]').css('background-color','gray')
 
     	 	 	 	   }
     	 	 	 	   else{ 
+    	 	 	 	   	 	
     	 	 	 	    	$("#error_field").text("")
     	 	 	 	   	    $(':input[type="submit"]').prop('disabled',false);
     	 	 	 	   	    $(':input[type="submit"]').css('background-color','gray')
     	 	 	 	   }
-    	 	 	    
+
+    	 	 		 
+    	 	 			if($("#pan").val().length!=16){
+    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
+    	 	 				$(':input[type="submit"]').prop('disabled',true);
+    	 	 	 	   		 $(':input[type="submit"]').css('background-color','gray')
+
+    	 	 	 	   }else{
+    	 	 	 	   	$("#error_field").text("")
+    	 	 	 	   		 $(':input[type="submit"]').prop('disabled',false);
+    	 	 	 	   		 $(':input[type="submit"]').css('background-color','#EC6501')
+    	 	 	 	   }	
+    	 	 	  }
+    	 	 	 	
     	 	 	})
+
+    	 	 	 $("#yy").keyup(function(){
+    	 	 	 	 if($(this).val().length==2){
+    	 	 				  $("#csc").focus();
+    	 	 			}
+    	 	 	 	if($("#csc").val().length==3){
+
+    	 	 	 	if($("#pan").val().length!=16){
+    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
+    	 	 				$(':input[type="submit"]').prop('disabled',true);
+    	 	 	 	    	 $(':input[type="submit"]').css('background-color','gray')
+
+    	 	 	 	   }
+    	 	 	 	   else{ 
+    	 	 	 	   	 	
+    	 	 	 	    	$("#error_field").text("")
+    	 	 	 	   	    $(':input[type="submit"]').prop('disabled',false);
+    	 	 	 	   	    $(':input[type="submit"]').css('background-color','gray')
+    	 	 	 	   }
+
+    	 	 		 
+    	 	 			if($("#pan").val().length!=16){
+    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
+    	 	 				$(':input[type="submit"]').prop('disabled',true);
+    	 	 	 	   		 $(':input[type="submit"]').css('background-color','gray')
+
+    	 	 	 	   }else{
+    	 	 	 	   	$("#error_field").text("")
+    	 	 	 	   		 $(':input[type="submit"]').prop('disabled',false);
+    	 	 	 	   		 $(':input[type="submit"]').css('background-color','#EC6501')
+    	 	 	 	   }	
+    	 	 	  }
+    	 	 	 })
+    	 	 	
 
     	 	 	$("#csc").keyup(function(){
     	 	 		if($(this).val().length==3){
@@ -217,51 +278,47 @@
     	 })
 
     </script>
-    <script type="text/javascript"> 
+	   <script type="text/javascript"> 
 	   	
         $(document).ready (function() { 
-
-        	$.event.trigger({
-        		 type:"openKeyboard",
-        		 message:"22",
-
-        	});
         	
-         	  $(".inputs").focus();
-                   $(".inputs").on('keyup',function (e) {
+        	 
+         	  // $(".inputs").focus();
+            //        $(".inputs").on('keydown',function (e) {
 
-                   	if($("#octet1").val().length<4){
-                   		$(this.target).val('');
-                   		$("#octet1").focus();
-                   	}
-                   	console.log('value insert')
+            //        	if($("#octet1").val().length<4){
+                   	 
+            //        		$("#octet1").focus();
+            //        	}
+                    
  
-                   		if (this.value.length === 0 )  {
-	                    	if($("#octet1").val().length===0){
-	                       		$(".credit-card-icon").css("display","none");
-	                      	}
-                            $(this).prev('.inputs').focus();
-                        }
-			   
-			   $(".zz").text( console.log(e.which));
-                   
-                     if (this.value.length === this.maxLength) {
-                     	
-                        $(this).next('.inputs').focus();
-                        
-                        var s = $("#octet4").val().length;
-                      	if(s==4){
-                      		$(".mm").focus();
-                      		if($(".mm").val().length ){
-                      			$('.yy').focus();
-                      			if($(".yy").val().length){
-                      				$(".csc").focus();
-                      			}
-                      		}
-                      	};
-                     }
-                 });
+            //        		if (this.value.length === 0 )  {
+	           //          	if($("#octet1").val().length===0){
+	           //             		$(".credit-card-icon").css("display","none");
+	           //            	}
+            //                 $(this).prev('.inputs').focus();
+            //             }
+
+            //             if (this.value.length === this.maxLength) {
+            //             $(this).next('.inputs').focus();
+            //             var s = $("#octet4").val().length;
+            //           	if(s==4){
+            //           		$(".mm").focus();
+            //           		if($(".mm").val().length ){
+            //           			$('.yy').focus();
+            //           			if($(".yy").val().length){
+            //           				$(".csc").focus();
+            //           			}
+            //           		}
+            //           	};
+            //          }
+
+            //      });
             });
+
+        	 
+                   
+        	 
 
   
 
@@ -289,6 +346,6 @@
 
             }
 
-        </script>  
+        </script>
 </html>
  
