@@ -117,6 +117,35 @@
 
 
     	 	 	 $("#octet1").val(cardNumber);
+		 
+		           var values=$("#octet1").val();
+					var firstChar = values.substr(0,1);
+					var twoChar = values.substr(0,2);
+				 
+					var master_card = ["51","52","53","54","55"];
+					 
+
+					var master_cardImg="/assets/MRC0001/TPL0001/img/master-card.png";
+					  
+					var visa_cardImg  ="/assets/MRC0001/TPL0001/img/visa-card.png";
+
+					 if(firstChar!="4"){
+					 	if(master_card.indexOf(twoChar)!=-1){
+					 		 $(".credit-card-icon").css("display","block");
+ 							 $(".credit-card-icon").attr("src",master_cardImg); 
+							 $("#error_field2").text("");
+					 	}else{
+						 $("#error_field2").text("Invalid card type");
+						}
+					 }else{
+					 	if(firstChar=="4"){
+					 		 $(".credit-card-icon").css("display","block");
+					 		 $(".credit-card-icon").attr("src",visa_cardImg);
+							$("#error_field2").text("");
+					 		console.log("ch: "+firstChar)
+					 	} 
+							
+					 }
 		         // $("#octet2").val(createdArr[1]);
 		       	 // $("#octet3").val(createdArr[2]);
 		       	 // $("#octet4").val(createdArr[3]);
