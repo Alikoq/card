@@ -216,13 +216,13 @@
     padding-bottom: 64px;
 }
 .inputs{
-  float: left;
-  color:#6B6B6B ;
-     width: 190px;
+     float: left;
+    color: #6B6B6B;
+    width: 172px;
     font-size: 16px;
     padding: 5px 3px;
     border: none;
-    font-weight:bold
+    font-weight: bold;
 }
 .inputs:focus{
     outline: none;
