@@ -95,9 +95,10 @@
     	 }
 
     	 
-         // fillSourceCardData("4123456789123456","03","2017");
+          fillSourceCardData("4123456789123456","03","2017");
 
     	 function fillSourceCardData(cardNumber,expMonth,expYear){
+		 $("#octet1").mask("9999 9999 9999 9999");
     	 	 	var cardNumberArr= cardNumber.split('');
     	 	 	var createdArr =[];
     	 	 	var leng;
