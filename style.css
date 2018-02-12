@@ -1,5 +1,4 @@
 
- 
 @media (max-width: 2400px){
     @font-face{
      font-family: fontsan;
@@ -192,15 +191,26 @@
     font-size: 18px;  
 }
 #error_field{
-        margin-top: 20px;
-    text-align: center;
+     padding-top: 5px;
+    float: left;
     font-size: 12px;
     color: #c13030;
+    font-size: 11px;
+    width: 100%;
+    text-align: center;
 }
 #error_field2{
-        margin-top: 20px;
-    text-align: center;
-    font-size: 12px;
+      padding-top: 6px;
+    text-align: left;
+    height: 15px;
+    font-size: 11px;
+    color: #c13030;
+}
+#error_field3{
+    padding-top: 5px;
+    text-align: left;
+    height: 15px;
+    font-size: 11px;
     color: #c13030;
 }
 .numb-text3{
@@ -216,11 +226,11 @@
     padding-bottom: 64px;
 }
 .inputs{
-     float: left;
+    float: left;
     color: #6B6B6B;
     width: 172px;
     font-size: 16px;
-    padding: 5px 3px;
+    padding: 6px 3px;
     border: none;
     font-weight: bold;
 }
@@ -490,8 +500,8 @@ padding: 3px 0px;
  .title-input{
        color: #929292;
     font-size: 13px;
-    padding-bottom: 7px;
-    padding-top: 18px;
+    padding-bottom: 1px;
+    padding-top: 3px;
 
  }
 
@@ -568,9 +578,9 @@ input[type="tel"]:focus{
     margin-top: 14px;
 }
  .title-input2 span{
-       float: left;
+           float: left;
     font-size: 13px;
-    padding-top: 28px;
+    padding-top: 12px;
  }
 
  .card-exp-text{
@@ -585,5 +595,3 @@ input[type="tel"]:focus{
  .card-cvc input[type="tel"]{
     border:none;
  }
-
- 
