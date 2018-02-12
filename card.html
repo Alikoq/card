@@ -95,7 +95,7 @@
     	 }
 
     	 
-          fillSourceCardData("4123456789123456","03","2017");
+        //  fillSourceCardData("4123456789123456","03","2017");
 
     	 function fillSourceCardData(cardNumber,expMonth,expYear){
 		 $("#octet1").mask("9999 9999 9999 9999");
@@ -155,7 +155,35 @@
 		      	  
     	 }
 
- 
+	     function checkMonth(){
+
+			var month = $("#mm").val();
+			if(parseInt(month)>12){
+				console.log('geldi')
+				 $(':input[type="submit"]').prop('disabled',true);
+				 return $("#error_field3").text("Неверные данные");
+			}else if(parseInt(month)==0){
+				console.log('geldi22')
+				 $(':input[type="submit"]').prop('disabled',true);
+				return  $("#error_field3").text("Неверные данные");
+			}
+			 return $("#error_field3").text("");
+		 }
+
+	     function checkYear(){
+
+			var year = $("#yy").val();
+			if(parseInt(year)>30){
+				console.log('geldiddd')
+				$(':input[type="submit"]').prop('disabled',true);
+				 return $("#error_field3").text("Неверные данные");
+			}else if(parseInt(year)<18){
+				console.log('geldi22s')
+				$(':input[type="submit"]').prop('disabled',true);
+				 return  $("#error_field3").text("Неверные данные");
+			}
+		  return  $("#error_field3").text("");
+		 }
 
     	 jQuery(function(){
 
