@@ -18,9 +18,12 @@
 							<p >Для подтверждения карты с ее счета
 						спишется и вернется от 0.01 до 0.99 AZN.</p>
  						</div>
-						 <div class="cards-holder"> 
+						  <div class="cards-holder"> 
 						 	<div class="card-wrapper">  
 						 			<div class="card-number-input">
+						 				<div id="error_field2">
+						 			
+						 				</div>
 						 				<div class="title-input">
 						 					<span>Kartın nömrəsi </span>
 						 				</div>
@@ -30,7 +33,7 @@
 								 		<input class="inputs" oninput="check(this,'octet3')" name="third"  id="octet3" type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
 								 		<input class="inputs" oninput="check(this,'octet4')" name="fourth" id="octet4"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>  -->													
  						 				<div class="icon2 hide"  id="for-scan">
-						 					<img onclick=" callScanner();return false;" src="./img/ic_scan.svg"/>
+						 					<img onclick=" callScanner();return false;" src="./img/ic_scan.png"/>
 						 				</div>
 
 						 				<input type="hidden" id="pan" name="pan"/>
@@ -38,16 +41,22 @@
 						 		    	<input type="hidden" name="holder" value="Holder"/>
 						 			</div> 
 						 			<div class="card-info-inputs">
+						 				<div id="error_field3">
+						 			
+						 				</div>
 						 				<div class="title-input2">
 						 					<span class="card-exp-text">Срок действия</span><span class="card-cvc-text">CVV2/CVC2</span>  
 						 				</div>
 						 				<div class="card-exp">
-						 				 	<input type="tel" maxlength="2"   oninput="maxCheck(this,'mm')" class="inputs mm" id="mm" name="month" placeholder="ММ" autocomplete="off"/>/
-						 				 	<input type="tel" maxlength="2"   oninput="check(this, 'yy')" autocomplete="off" class="inputs yy" id="yy" name="year" placeholder="ГГ"/>
+						 				 	<input type="tel" maxlength="2" onkeyup="checkMonth()"   oninput="maxCheck(this,'mm')" class="inputs mm" id="mm" name="month" placeholder="ММ" autocomplete="off"/>/
+						 				 	<input type="tel" maxlength="2"  onkeyup="checkYear()"   oninput="check(this, 'yy')" autocomplete="off" class="inputs yy" id="yy" name="year" placeholder="ГГ"/>
 						 				</div>
 						 				 
 						 				<div class="card-cvc">
 									 		<input type="tel" id="csc" name="csc" oninput=" check(this, 'csc')" maxlength="3" class="inputs csc" placeholder="xxx"/>
+						 				</div>
+						 				<div id="error_field"> 
+						 		
 						 				</div>
 						 			</div>
 						 	</div> 
@@ -57,14 +66,10 @@
 						 	<!-- <div id="for-scan" class="for-scan hide"  >
 						 		<button onclick=" callScanner();return false;">Сканировать</button> 
 						 	</div> -->
-						 	<div id="error_field"> 
-						 		
-						 	</div>
-						 	<div id="error_field2">
-						 		
-						 	</div>
+						 	
+						 	
 						
-						 </div>
+						 </div> 
 					</div>
 					
 			     
