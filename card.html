@@ -100,7 +100,7 @@
     	 }
 
     	 
-           fillSourceCardData("4123456789123456","11","11");
+           fillSourceCardData("4123456789123456"," ",null);
 
     	   function fillSourceCardData(cardNumber,expMonth,expYear){
     	 	 	var cardNumberArr= cardNumber.split('');
@@ -113,11 +113,18 @@
     	 	 	// createdArr.join();
     	 	 	 
   
-  				if(expMonth !=null){
-     			       $("#mm ").val(expMonth);
+  				if(expMonth !=null && expYear !=null){
+     			   	   $("#mm ").val(expMonth);
   				   $("#yy").val(expYear.substr(2,3));
 	
-  				}   
+  				}else{
+				   $("#mm ").val("");
+  				   $("#yy").val("");
+				}
+				if(expMonth=="" && expYear==""){
+				   $("#mm ").val("");
+  				   $("#yy").val("");
+				}  
 
 				        $("#octet1").val(cardNumber);
 		 
