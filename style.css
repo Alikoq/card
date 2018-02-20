@@ -427,10 +427,10 @@ padding: 3px 0px;
  }
     
     .card-input{
-    font-size: 16;
+       font-size: 16;
     font-weight: bold;
     color: #6B6B6B;
-    width: 192px;
+    width: 180px;
     padding-left: 11px;
     border: none;
     padding-top: 5px;
@@ -503,13 +503,13 @@ padding: 3px 0px;
     width: 146px;
  }
     .card-input{
-   font-size: 16px;
+       font-size: 16;
     font-weight: bold;
     color: #6B6B6B;
-    width: 192px;
+    width: 180px;
     padding-left: 11px;
     border: none;
-    padding-top: 9px;
+    padding-top: 5px;
 }
 .card-input:focus{
     outline: none;
