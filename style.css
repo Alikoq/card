@@ -225,7 +225,7 @@
     width: 100%;
     padding-bottom: 64px;
 }
-.inputs{
+.card-input{
     font-size: 16;
     font-weight: bold;
     color: #6B6B6B;
@@ -234,7 +234,7 @@
     border: none;
     padding-top: 5px;
 }
-.inputs:focus{
+.card-input:focus{
     outline: none;
 }
 
