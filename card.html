@@ -28,7 +28,7 @@
 						 					<span>Kartın nömrəsi </span>
 						 				</div>
 						 				<div class="icon"><img class="credit-card-icon" src=" "/></div>
-										 <input   id="card" class="card-input" oninput="check(this,'octet1')" placeholder="xxxx xxxx xxxx xxxx" name="first" type = "tel"  maxlength = "19" autocomplete="on"    placeholder="xxxx xxxx xxxx xxxx" />
+										 <input   id="card" class="card-input"   placeholder="xxxx xxxx xxxx xxxx" name="first" type = "tel"  maxlength = "19" autocomplete="on"    placeholder="xxxx xxxx xxxx xxxx" />
 
 										<!--<input class="inputs" oninput="check(this,'octet1')" name="first"  id="octet1" type = "tel"  maxlength = "19" autocomplete="on"    placeholder="xxxx xxxx xxxx xxxx" />
 								 		  <input class="inputs" oninput="check(this,'octet2')" name="second" id="octet2"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
@@ -128,9 +128,9 @@
   				   $("#yy").val("");
 				}  
 
-				        $("#octet1").val(cardNumber);
+				        $("#card").val(cardNumber);
 		 
-		                        var values=$("#octet1").val();
+		                        var values=$("#card").val();
 					var firstChar = values.substr(0,1);
 					var twoChar = values.substr(0,2);
 				 
@@ -156,12 +156,8 @@
 					 	} 
 							
 					 }
-
-    	 	 	  
-		         // $("#octet2").val(createdArr[1]);
-		       	 // $("#octet3").val(createdArr[2]);
-		       	 // $("#octet4").val(createdArr[3]);
-		       	 var panText =$("#octet1").val();
+ 
+		       	 var panText =$("#card").val();
 		      	 $("#pan").val(panText.replace(/\s+/g, ''))
 		      	  
     	 }
@@ -200,7 +196,7 @@
     	 	$("#card").mask("9999 9999 9999 9999");
 
     	 		 var i=0;
-    	 		 $("#octet1").focus();
+    	 		 $("#card").focus();
 
     	 		$("#submit_btn").on("click",function(){
     	    	   
@@ -214,12 +210,12 @@
     	 		})
 
 
-				$("#octet1").keyup(function(){
-					var values=$("#octet1").val();
+				$("#card").keyup(function(){
+					var values=$("#card").val();
 					var firstChar = values.substr(0,1);
 					var twoChar = values.substr(0,2);
 				 
-					var master_card = ["51","52","53","54","55"];
+					var master_card = ["51","52","53","54","55","6"]
 					 
 
 					var master_cardImg="./img/master-card.png";
@@ -243,13 +239,13 @@
 					 	} 
 							
 					 }
-					  var panText =$("#octet1").val();
+					  var panText =$("#card").val();
 		      	     $("#pan").val(panText.replace(/\s+/g, ''));
 
     	 	 			if($(this).val().length==19){
     	 	 				$("#mm").focus(); 
     	 	 			}
-				 if($("#octet1").val().length===0){
+				 if($("#card").val().length===0){
 	                 		$(".credit-card-icon").css("display","none");
 				 }
 
