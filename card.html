@@ -28,12 +28,7 @@
 						 					<span>Kartın nömrəsi </span>
 						 				</div>
 						 				<div class="icon"><img class="credit-card-icon" src=" "/></div>
-										 <input   id="card" class="card-input"   placeholder="xxxx xxxx xxxx xxxx" name="first" type = "tel"  maxlength = "19" autocomplete="on"    placeholder="xxxx xxxx xxxx xxxx" />
-
-										<!--<input class="inputs" oninput="check(this,'octet1')" name="first"  id="octet1" type = "tel"  maxlength = "19" autocomplete="on"    placeholder="xxxx xxxx xxxx xxxx" />
-								 		  <input class="inputs" oninput="check(this,'octet2')" name="second" id="octet2"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
-								 		<input class="inputs" oninput="check(this,'octet3')" name="third"  id="octet3" type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>
-								 		<input class="inputs" oninput="check(this,'octet4')" name="fourth" id="octet4"  type = "tel"  maxlength = "4" autocomplete="off"   placeholder="xxxx"/>  -->													
+										 <input   id="card" class="card-input"   placeholder="xxxx xxxx xxxx xxxx" name="first" type = "tel"  maxlength = "19" autocomplete="on"     /> 												
  						 				<div class="icon2 hide"  id="for-scan">
 						 					<img onclick=" callScanner();return false;" src="./img/ic_scan.png"/>
 						 				</div>
@@ -102,50 +97,50 @@
     	 }
 
     	 
-           fillSourceCardData("4123456789123456","10","11");
+         //   fillSourceCardData("4123456789123456","10","2019");
 
     	   function fillSourceCardData(cardNumber,expMonth,expYear){
     	 	 	var cardNumberArr= cardNumber.split('');
     	 	 	var createdArr =[];
     	 	 	var leng;
-    	 	 	var count=0;
-    	 	 	// for(var i=0;i<cardNumber.length; i+=4){
-    	 	 	//    createdArr.push(cardNumber.substr(i,4))
-    	 	 	// }
-    	 	 	// createdArr.join();
-    	 	 	 
-  
-  				if(expMonth !=null && expYear !=null){
-     			   	   $("#mm ").val(expMonth);
-  				   $("#yy").val(expYear.substr(2,3));
-	
-  				}else{
-				   $("#mm ").val("");
-  				   $("#yy").val("");
-				}
-				if(expMonth=="" && expYear==""){
-				   $("#mm ").val("");
-  				   $("#yy").val("");
-				}  
-
-				        $("#card").val(cardNumber);
+    	 	 	var count=0; 
+		   
+		          if(expMonth !=null && expYear !=null){
+		                 $("#mm ").val(expMonth);
+		                 if(expYear.length==4){
+		                $("#yy").val(expYear.substr(2,3));
+		                 }else{
+		                   $("#yy").val(expYear);
+		                 }
+		  
+		          }else{
+		             $("#mm ").val("");
+		             $("#yy").val("");
+		          }
+		  				
+		          if(expMonth=="" && expYear==""){
+  				       $("#mm ").val("");
+    			  	   $("#yy").val("");
+  				  }
+				   $("#card").val(cardNumber);
 		 
-		                        var values=$("#card").val();
+		            var values=$("#card").val();
 					var firstChar = values.substr(0,1);
 					var twoChar = values.substr(0,2);
 				 
 					var master_card = ["51","52","53","54","55"];
-					 
-					var master_cardImg="/assets/MRC0001/TPL0001/img/master-card.png";
+
+					var maestro_card="6"; 
+					var master_cardImg="./img/master-card.png";
 					  
-					var visa_cardImg  ="/assets/MRC0001/TPL0001/img/visa-card.png";
+					var visa_cardImg  ="./img/visa-card.png";
 					 if(firstChar!="4"){
 					 	if(master_card.indexOf(twoChar)!=-1){
 					 		 $(".credit-card-icon").css("display","block");
  							 $(".credit-card-icon").attr("src",master_cardImg); 
 							 $("#error_field2").text("");
 					 	}else{
-						 $("#error_field2").text("Incorrect card number");
+						     $("#error_field2").text("Incorrect card number");
 						}
 					 }else{
 					 	if(firstChar=="4"){
@@ -164,31 +159,45 @@
 	     function checkMonth(){
 
 			var month = $("#mm").val();
-			if(parseInt(month)>12){
-				console.log('geldi')
-				 $(':input[type="submit"]').prop('disabled',true);
-				 return $("#error_field3").text("Неверные данные");
-			}else if(parseInt(month)==0){
-				console.log('geldi22')
-				 $(':input[type="submit"]').prop('disabled',true);
-				return  $("#error_field3").text("Неверные данные");
+			if(month.length==2){
+				if(parseInt(month)>12){
+				  
+				  $(':input[type="submit"]').prop('disabled',true);
+				  return $("#error_field3").text("Неверные данные");
+				  	return false;
+				}else if(parseInt(month)==0){
+					 
+					 $(':input[type="submit"]').prop('disabled',true);
+					 $("#error_field3").text("Неверные данные");
+					 return false;
+				}else{
+					   return $("#error_field3").text("");
+				}
 			}
-			 return $("#error_field3").text("");
+			
+			 return false;
 		 }
 
 	     function checkYear(){
 
 			var year = $("#yy").val();
-			if(parseInt(year)>30){
-				console.log('geldiddd')
-				$(':input[type="submit"]').prop('disabled',true);
-				 return $("#error_field3").text("Неверные данные");
-			}else if(parseInt(year)<18){
-				console.log('geldi22s')
-				$(':input[type="submit"]').prop('disabled',true);
-				 return  $("#error_field3").text("Неверные данные");
+			if(year.length==2){
+				if(parseInt(year)>30){
+				 console.log('geldiddd')
+				 $(':input[type="submit"]').prop('disabled',true);
+				  return $("#error_field3").text("Неверные данные");
+			   }else if(parseInt(year)<18){
+				 console.log('geldi22s')
+				 $(':input[type="submit"]').prop('disabled',true);
+			 	 return  $("#error_field3").text("Неверные данные");
+			   }
+
+			   if(checkMonth()==false){
+			   	 return $("#error_field3").text("Неверные данные");
+			   }
 			}
-		  return  $("#error_field3").text("");
+			
+		  return false;
 		 }
 
     	 $(function(){
@@ -209,15 +218,14 @@
     	 			}
     	 		})
 
-
-				$("#card").keyup(function(){
+				$("#card").keyup(function(e){
 					var values=$("#card").val();
 					var firstChar = values.substr(0,1);
 					var twoChar = values.substr(0,2);
 				 
-					var master_card = ["51","52","53","54","55","6"]
-					 
-
+					var master_card = ["51","52","53","54","55"];
+					var maestro_card="6";
+					  
 					var master_cardImg="./img/master-card.png";
 					 
 					var visa_cardImg ="./img/visa-card.png";
@@ -227,7 +235,17 @@
 					 		 $(".credit-card-icon").css("display","block");
  							 $(".credit-card-icon").attr("src",master_cardImg); 
 							 $("#error_field2").text("");
-					 	}else{
+					 	}else if(firstChar=="6"){
+					 			 $(".credit-card-icon").css("display","block");
+					 		 $(".credit-card-icon").attr("src",master_cardImg); 
+					 		 $("#error_field2").text("");
+					 	}else if(firstChar==""){
+					 		$("#error_field2").text("");
+					 	}else if( firstChar=="5"){
+ 							 $(".credit-card-icon").attr("src",master_cardImg); 
+					 		 $("#error_field2").text("");
+					 	}
+					 	else{
 						 $("#error_field2").text("Тип карты не верный");
 						}
 					 }else{
@@ -239,16 +257,25 @@
 					 	} 
 							
 					 }
-					  var panText =$("#card").val();
-		      	     $("#pan").val(panText.replace(/\s+/g, ''));
+					 if(e.keyCode==8 &&  $(this).val().length==18 && $(this).val().length<=19){
+					 	console.log('ca');
+					 	// $("#error_field").text("Пожалуйста, заполните все поля")
+					 	// $(':input[type="submit"]').prop('disabled',true);
+					 	//  $(':input[type="submit"]').css('background-color','gray')
+
+					 } 
+					   
+
+					    var panText =$("#card").val();
+		      	       $("#pan").val(panText.replace(/\s+/g, ''));
 
     	 	 			if($(this).val().length==19){
+    	 	 			 
     	 	 				$("#mm").focus(); 
     	 	 			}
-				 if($("#card").val().length===0){
+				       if($("#card").val().length===0){
 	                 		$(".credit-card-icon").css("display","none");
-				 }
-
+				        } 	
 				})
 
 				$("#mm").mask("99");
@@ -323,22 +350,26 @@
     	 	 	
 
     	 	 	$("#csc").keyup(function(){
-    	 	 		if($(this).val().length==3){
-						if($("#pan").val().length!=16){
-    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
-    	 	 				$(':input[type="submit"]').prop('disabled',true);
-    	 	 	 	   		 $(':input[type="submit"]').css('background-color','gray')
+    	 	 		var lengthValues=$(this).val();   
+                       
+            	 	        if($(this).val().length==3){
+        						if($("#pan").val().length!=16){
+            	 	 				$("#error_field").text("Zəhmət olmasa, bütün xanaları doldurun")
+            	 	 				$(':input[type="submit"]').prop('disabled',true);
+            	 	 	 	   		 $(':input[type="submit"]').css('background-color','gray')
 
-    	 	 	 	   }else{
-    	 	 	 	   	$("#error_field").text("")
-    	 	 	 	   		 $(':input[type="submit"]').prop('disabled',false);
-    	 	 	 	   		 $(':input[type="submit"]').css('background-color','#EC6501')
-    	 	 	 	   }
-    	 	 	   }else{
-    	 	 	   	$("#error_field").text("Пожалуйста, заполните все поля")
-    	 	 				$(':input[type="submit"]').prop('disabled',true);
-    	 	 	 	   		 $(':input[type="submit"]').css('background-color','gray')
-    	 	 	   }
+            	 	 	 	   }else{
+            	 	 	 	   	$("#error_field").text("")
+            	 	 	 	   		 $(':input[type="submit"]').prop('disabled',false);
+            	 	 	 	   		 $(':input[type="submit"]').css('background-color','#EC6501')
+            	 	 	 	   }
+            	 	 	   } 
+
+            	 	 	   if($(this).val().length<3){
+            	 	 	      	$(':input[type="submit"]').prop('disabled',true);
+            	 	 	 	    $(':input[type="submit"]').css('background-color','gray')
+            	 	 	   }
+	    	 	 	 
     	 	 		
     	 	 	})
     	 	 	
@@ -346,48 +377,7 @@
 
     </script>
 	   <script type="text/javascript"> 
-	   	
-        $(document).ready (function() { 
-        	
-        	 
-         	  // $(".inputs").focus();
-            //        $(".inputs").on('keydown',function (e) {
-
-            //        	if($("#octet1").val().length<4){
-                   	 
-            //        		$("#octet1").focus();
-            //        	}
-                    
- 
-            //        		if (this.value.length === 0 )  {
-	           //          	if($("#octet1").val().length===0){
-	           //             		$(".credit-card-icon").css("display","none");
-	           //            	}
-            //                 $(this).prev('.inputs').focus();
-            //             }
-
-            //             if (this.value.length === this.maxLength) {
-            //             $(this).next('.inputs').focus();
-            //             var s = $("#octet4").val().length;
-            //           	if(s==4){
-            //           		$(".mm").focus();
-            //           		if($(".mm").val().length ){
-            //           			$('.yy').focus();
-            //           			if($(".yy").val().length){
-            //           				$(".csc").focus();
-            //           			}
-            //           		}
-            //           	};
-            //          }
-
-            //      });
-            });
-
-        	 
-                   
-        	 
-
-  
+	   	 
 
             function check(obj, id) {
                 var reg = new RegExp('^[0-9]+$');
