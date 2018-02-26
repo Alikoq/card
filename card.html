@@ -15,7 +15,8 @@
 				 
 					<div class="container-item">
 						<div class="info-text">
-							<p >Для подтверждения карты с ее счета спишется и вернется 0,05 AZN.</p>
+							<p >Для подтверждения карты с ее счета
+						спишется и вернется от 0.01 до 0.99 AZN.</p>
  						</div>
 						  <div class="cards-holder"> 
 						 	<div class="card-wrapper">  
@@ -24,7 +25,7 @@
 						 			
 						 				</div>
 						 				<div class="title-input">
-						 					<span>Номер карты </span>
+						 					<span>Kartın nömrəsi </span>
 						 				</div>
 						 				<div class="icon"><img class="credit-card-icon" src=" "/></div>
 										 <input   id="card" class="card-input"   placeholder="xxxx xxxx xxxx xxxx" name="first" type = "tel"  maxlength = "19" autocomplete="on"     /> 												
@@ -96,40 +97,40 @@
     	 }
 
     	 
-            fillSourceCardData("4123456789123456","10","2019");
+          fillSourceCardData("4123456789123456","03","2017");
 
-    	   function fillSourceCardData(cardNumber,expMonth,expYear){
+    	 function fillSourceCardData(cardNumber,expMonth,expYear){
     	 	 	var cardNumberArr= cardNumber.split('');
     	 	 	var createdArr =[];
     	 	 	var leng;
-    	 	 	var count=0; 
-		   
-		          if(expMonth !=null && expYear !=null){
-		                 $("#mm ").val(expMonth);
-		                 if(expYear.length==4){
-		                $("#yy").val(expYear.substr(2,3));
-		                 }else{
-		                   $("#yy").val(expYear);
-		                 }
-		  
-		          }else{
-		             $("#mm ").val("");
-		             $("#yy").val("");
-		          }
-		  				
-		          if(expMonth=="" && expYear==""){
-  				       $("#mm ").val("");
-    			  	   $("#yy").val("");
-  				  }
-				   $("#card").val(cardNumber);
+    	 	 	var count=0;
+  				 
+          if(expMonth !=null && expYear !=null){
+                 $("#mm ").val(expMonth);
+                 if(expYear.length==4){
+                   $("#yy").val(expYear.substr(2,3));
+                 }else{
+                   $("#yy").val(expYear);
+                 }
+  
+          }else{
+             $("#mm ").val("");
+             $("#yy").val("");
+          }
+  				
+          if(expMonth=="" && expYear==""){
+  				 $("#mm ").val("");
+    				   $("#yy").val("");
+  				}
+  				
+				$("#card").val(cardNumber);
 		 
-		            var values=$("#card").val();
+		           var values=$("#card").val();
 					var firstChar = values.substr(0,1);
 					var twoChar = values.substr(0,2);
 				 
 					var master_card = ["51","52","53","54","55"];
-
-					var maestro_card="6"; 
+					 
 					var master_cardImg="./img/master-card.png";
 					  
 					var visa_cardImg  ="./img/visa-card.png";
@@ -139,7 +140,7 @@
  							 $(".credit-card-icon").attr("src",master_cardImg); 
 							 $("#error_field2").text("");
 					 	}else{
-						     $("#error_field2").text("Incorrect card number");
+						 $("#error_field2").text("Kartın nömrəsi yanlışdır");
 						}
 					 }else{
 					 	if(firstChar=="4"){
@@ -150,11 +151,12 @@
 					 	} 
 							
 					 }
- 
+		         
 		       	 var panText =$("#card").val();
 		      	 $("#pan").val(panText.replace(/\s+/g, ''))
 		      	  
     	 }
+
 	     function checkMonth(){
 
 			var month = $("#mm").val();
@@ -169,9 +171,17 @@
 					 $(':input[type="submit"]').prop('disabled',true);
 					 $("#error_field3").text("Неверные данные");
 					 return false;
-				}else{
-					   return $("#error_field3").text("");
+				}else if(month.length==0){
+					 $("#error_field3").text("");
+					 return false;
 				}
+				else{
+					   $("#error_field3").text("");
+					return true;
+				}
+				if(checkYear()==false){
+			   	 return $("#error_field3").text("Неверные данные");
+			   }
 			}
 			
 			 return false;
@@ -195,6 +205,7 @@
 			   	 return $("#error_field3").text("Неверные данные");
 			   }
 			}
+
 			
 		  return false;
 		 }
@@ -245,7 +256,7 @@
 					 		 $("#error_field2").text("");
 					 	}
 					 	else{
-						 $("#error_field2").text("Тип карты не верный");
+						 $("#error_field2").text("Номер карты неверный");
 						}
 					 }else{
 					 	if(firstChar=="4"){
@@ -256,20 +267,27 @@
 					 	} 
 							
 					 }
-					 if(e.keyCode==8 &&  $(this).val().length==18 && $(this).val().length<=19){
-					 	console.log('ca');
-					 	// $("#error_field").text("Пожалуйста, заполните все поля")
-					 	// $(':input[type="submit"]').prop('disabled',true);
-					 	//  $(':input[type="submit"]').css('background-color','gray')
+					 if(e.keyCode==8 &&  $(this).val().length==0 ){
+					 	 
+					 	  $("#error_field").text("Пожалуйста, заполните все поля")
+					 	  $(':input[type="submit"]').prop('disabled',true);
+					 	  $(':input[type="submit"]').css('background-color','gray')
 
 					 } 
+
+
 					   
 
 					    var panText =$("#card").val();
 		      	       $("#pan").val(panText.replace(/\s+/g, ''));
 
-    	 	 			if($(this).val().length==19){
-    	 	 			 
+    	 	 			if($("#card").val().length===19){
+    	 	 			 	if($("#csc").val().length==3 && $("#mm").val().length==2 && $("#yy").val().length==2){
+    	 	 			 		console.log('he')
+    	 	 			 		$(':input[type="submit"]').prop('disabled',false);
+    	 	 			 		 $("#error_field").text("");
+    	 	 			 		 $(':input[type="submit"]').css('background-color','#EC6501');
+    	 	 			 	}
     	 	 				$("#mm").focus(); 
     	 	 			}
 				       if($("#card").val().length===0){
@@ -280,13 +298,21 @@
 				$("#mm").mask("99");
 				$("#yy").mask("99")
     	 	 	 
-    	 	 	 $("#mm").keyup(function(){
+    	 	 	 $("#mm").keyup(function(e){
     	 	 	 	 if($(this).val().length==2){
     	 	 				  $("#yy").focus();
     	 	 			}
+
+    	 	 			 if($("#pan").val().length!=16){
+    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
+    	 	 				$(':input[type="submit"]').prop('disabled',true);
+    	 	 	 	    	 $(':input[type="submit"]').css('background-color','gray')
+
+    	 	 	 	   }
+
     	 	 	 	if($("#csc").val().length==3){
 
-    	 	 	 	if($("#pan").val().length!=16){
+    	 	 	 	  if($("#pan").val().length!=16){
     	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
     	 	 				$(':input[type="submit"]').prop('disabled',true);
     	 	 	 	    	 $(':input[type="submit"]').css('background-color','gray')
@@ -310,41 +336,50 @@
     	 	 	 	   		 $(':input[type="submit"]').prop('disabled',false);
     	 	 	 	   		 $(':input[type="submit"]').css('background-color','#EC6501')
     	 	 	 	   }	
-    	 	 	  }
+    	 	 	    }
     	 	 	 	
+
+					if(e.keyCode==8 || $(this).val().length>2){
+						console.log('zzz');
+						  $("#error_field3").text("");
+					}
     	 	 	})
 
-    	 	 	 $("#yy").keyup(function(){
+    	 	 	 $("#yy").keyup(function(e){
     	 	 	 	 if($(this).val().length==2){
     	 	 				  $("#csc").focus();
     	 	 			}
-    	 	 	 	if($("#csc").val().length==3){
+	    	 	 	 	if($("#csc").val().length==3){
 
-    	 	 	 	if($("#pan").val().length!=16){
-    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
-    	 	 				$(':input[type="submit"]').prop('disabled',true);
-    	 	 	 	    	 $(':input[type="submit"]').css('background-color','gray')
+		    	 	 	 	if($("#pan").val().length!=16){
+		    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
+		    	 	 				$(':input[type="submit"]').prop('disabled',true);
+		    	 	 	 	    	 $(':input[type="submit"]').css('background-color','gray')
 
-    	 	 	 	   }
-    	 	 	 	   else{ 
-    	 	 	 	   	 	
-    	 	 	 	    	$("#error_field").text("")
-    	 	 	 	   	    $(':input[type="submit"]').prop('disabled',false);
-    	 	 	 	   	    $(':input[type="submit"]').css('background-color','gray')
-    	 	 	 	   }
+		    	 	 	 	   }
+		    	 	 	 	   else{ 
+		    	 	 	 	   	 	
+		    	 	 	 	    	$("#error_field").text("")
+		    	 	 	 	   	    $(':input[type="submit"]').prop('disabled',false);
+		    	 	 	 	   	    $(':input[type="submit"]').css('background-color','gray')
+		    	 	 	 	   }
 
-    	 	 		 
-    	 	 			if($("#pan").val().length!=16){
-    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
-    	 	 				$(':input[type="submit"]').prop('disabled',true);
-    	 	 	 	   		 $(':input[type="submit"]').css('background-color','gray')
+		    	 	 		 
+		    	 	 			if($("#pan").val().length!=16){
+		    	 	 				$("#error_field").text("Пожалуйста, заполните все поля")
+		    	 	 				$(':input[type="submit"]').prop('disabled',true);
+		    	 	 	 	   		 $(':input[type="submit"]').css('background-color','gray')
 
-    	 	 	 	   }else{
-    	 	 	 	   	$("#error_field").text("")
-    	 	 	 	   		 $(':input[type="submit"]').prop('disabled',false);
-    	 	 	 	   		 $(':input[type="submit"]').css('background-color','#EC6501')
-    	 	 	 	   }	
-    	 	 	  }
+		    	 	 	 	   }else{
+		    	 	 	 	   	$("#error_field").text("")
+		    	 	 	 	   		 $(':input[type="submit"]').prop('disabled',false);
+		    	 	 	 	   		 $(':input[type="submit"]').css('background-color','#EC6501')
+		    	 	 	 	   }	
+	    	 	 	  }
+	    	 	 	  	if(e.keyCode==8 || $(this).val().length>2){
+						console.log('zzz');
+						  $("#error_field3").text("");
+					}
     	 	 	 })
     	 	 	
 
